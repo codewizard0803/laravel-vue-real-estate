@@ -49,6 +49,12 @@ docker-compose up
 
 After running the docker compose setup you should run the commands below to set up the project.
 
+### Installing Composer packages
+
+```
+docker-compose exec app composer install
+```
+
 ### Generating key and optimizing app
 ```
 # needed for generating application app key 
