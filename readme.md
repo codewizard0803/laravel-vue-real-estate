@@ -72,3 +72,17 @@ docker-compose exec app npm install
 ```
  docker-compose exec app chmod -R 755 storage
 ```
+
+## To make initial code executable
+
+### Before running migrations make a change in `app/Providers/AppServiceProvider.php`
+ ```
+ public function boot()
+ {
+     \Schema::defaultStringLength(191);
+ }
+ ```
+
+ or update MySQL to at least v5.7.7
+
+ source: `https://laravel-news.com/laravel-5-4-key-too-long-error`
