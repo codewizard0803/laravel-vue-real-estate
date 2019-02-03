@@ -73,7 +73,7 @@ docker-compose exec app npm install
  docker-compose exec app chmod -R 755 storage
 ```
 
-## To make initial code executable
+## What I did to make the initial code executable?
 
 ### Before running migrations make a change in `app/Providers/AppServiceProvider.php`
  ```
@@ -86,3 +86,16 @@ docker-compose exec app npm install
  or update MySQL to at least v5.7.7
 
  source: `https://laravel-news.com/laravel-5-4-key-too-long-error`
+
+## Installation
+
+### Seed initial data
+```
+docker-compose exec app php artisan db:seed
+```
+
+## Use
+```
+login: example-user@gmail.com
+password: secret
+```
