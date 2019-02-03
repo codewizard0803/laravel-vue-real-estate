@@ -13,10 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware(['auth:api'])->group(function () {
+    // TODO: only needed data
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 
-Route::middleware('auth:api')->get('/test', function (Request $request) {
-    return 'aaa';
+    Route::get('/cities', 'CityController@index');
+
+    Route::get('/developers', 'DeveloperController@index');
 });
