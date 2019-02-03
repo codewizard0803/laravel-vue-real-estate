@@ -22,4 +22,12 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/cities', 'CityController@index');
 
     Route::get('/developers', 'DeveloperController@index');
+
+    Route::resource('lists', 'ListController', [
+        'only' => [
+            'index',
+            'show',
+            'store'
+        ]
+    ]);
 });

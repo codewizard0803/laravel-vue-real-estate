@@ -79,10 +79,24 @@ docker-compose exec app php artisan db:seed
 ```
 
 ## Use
+
+### Auth
 ```
 login: example-user@gmail.com
 password: secret
 ```
+
+### Tests
+
+```
+docker-compose exec app vendor/bin/phpunit
+```
+
+## What can be done better?
+
+* there should be unit tests for ListSearch (now ListIndexTest tests it)
+* adding new List item should be realized via some service
+* some data are unnecessarily exposed via api
 
 ## What I did to make the initial code executable?
 
@@ -97,3 +111,7 @@ password: secret
  or update MySQL to at least v5.7.7
 
  source: `https://laravel-news.com/laravel-5-4-key-too-long-error`
+ 
+ ### Tests
+ 
+ @maksymilian-majer removes some Laravel test classes, so I added them from `https://github.com/laravel/laravel/tree/5.4/tests`
