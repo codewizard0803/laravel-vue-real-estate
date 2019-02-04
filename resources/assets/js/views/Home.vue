@@ -1,17 +1,30 @@
 <template>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-            <!--<p>-->
-            <!--<router-link :to="{ name: 'home' }">Home</router-link> |-->
-            <!--<router-link :to="{ name: 'hello' }">Hello World</router-link>-->
-            <!--</p>-->
-        </div>
+        <list-new />
+        <list-filter />
+        <list-table />
+        <!--<p>-->
+        <!--<router-link :to="{ name: 'home' }">Home</router-link> |-->
+        <!--<router-link :to="{ name: 'hello' }">Hello World</router-link>-->
+        <!--</p>-->
     </div>
 </template>
+
+<script>
+    import ListNew from  '../components/List/ListNew.vue';
+    import ListFilter from '../components/List/ListFilter.vue';
+    import ListTable from '../components/List/ListTable.vue';
+
+    export default {
+        data() {
+            return {
+
+            }
+        },
+        components: {
+            ListNew,
+            ListFilter,
+            ListTable
+        }
+    }
+</script>
