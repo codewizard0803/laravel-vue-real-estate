@@ -70,7 +70,7 @@ docker-compose exec app npm install
 
 ### Set correct permisions if api router is not working
 ```
- docker-compose exec app chmod -R 755 storage
+ docker-compose exec app chmod -R 777 storage
 ```
 
 ### Seeding initial data
