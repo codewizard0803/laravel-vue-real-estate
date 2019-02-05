@@ -73,7 +73,7 @@ docker-compose exec app npm install
  docker-compose exec app chmod -R 755 storage
 ```
 
-### Seeding initial (fake) data
+### Seeding initial data
 ```
 docker-compose exec app php artisan db:seed
 ```
@@ -91,6 +91,10 @@ password: secret
 ```
 docker-compose exec app vendor/bin/phpunit
 ```
+
+### Postman endpoint collection
+
+Is in repo `https---github.com-jedrzejczak-laravel-vue-real-estate.postman_collection.json`
 
 ## What can be done better?
 

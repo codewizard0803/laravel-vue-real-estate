@@ -1,0 +1,184 @@
+{
+	"variables": [],
+	"info": {
+		"name": "https://github.com/jedrzejczak/laravel-vue-real-estate",
+		"_postman_id": "75433c95-12c2-bb0f-7133-d22dd26e8757",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/user",
+			"request": {
+				"url": "http://localhost:8080/api/user",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/cities",
+			"request": {
+				"url": "http://localhost:8080/api/cities",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/developers",
+			"request": {
+				"url": "http://localhost:8080/api/developers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/lists",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/api/lists?priceLessThan=&coutry=&isOnSale=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "priceLessThan",
+							"value": "",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "coutry",
+							"value": "",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "isOnSale",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST http://localhost:8080/api/lists",
+			"request": {
+				"url": "http://localhost:8080/api/lists",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "example name",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "developerId",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "cityId",
+							"value": "5",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "isOnSale",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/lists/1",
+			"request": {
+				"url": "http://localhost:8080/api/lists/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api-token",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

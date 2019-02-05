@@ -15,7 +15,7 @@ class ExampleUserSeeder extends Seeder
             'name' => 'Example user',
             'email' => 'example-user@gmail.com',
             'password' => bcrypt('secret'),
-            'api_token' => str_limit(bcrypt('api_token'), 60),
+            'api_token' => 'api-token',
         ]);
     }
 }
