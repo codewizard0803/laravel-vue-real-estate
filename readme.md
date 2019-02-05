@@ -106,7 +106,7 @@ Is in repo `https---github.com-jedrzejczak-laravel-vue-real-estate.postman_colle
 * clear form after adding item
 * clear filters after adding item
 * error handling
-* validation (api return validation messages, but frontend do nothing with it)
+* validation (api returns validation messages, but frontend does nothing with it)
 * remove unused files created by laravel
 * frontend tests
 * loaders / spinners
