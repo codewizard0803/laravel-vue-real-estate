@@ -33,6 +33,6 @@ class ListController extends Controller
 
     public function show($id)
     {
-        return response()->json(ListModel::findOrFail($id));
+        return response()->json(ListModel::with('city')->findOrFail($id));
     }
 }

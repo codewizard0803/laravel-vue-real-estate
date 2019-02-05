@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Hello from './views/Hello';
 import Home from './views/Home';
+import Details from "./views/Details";
 
 Vue.use(VueRouter);
 
@@ -16,7 +16,7 @@ export default new VueRouter({
         {
             path: '/item/:id',
             name: 'list.item',
-            component: Hello,
+            component: Details,
             props: true,
         },
     ],
