@@ -98,6 +98,10 @@ docker-compose exec app vendor/bin/phpunit
 * adding new List item should be realized via some service
 * some data are unnecessarily exposed via api
 * code formatting (eslint, prettier)
+* clear form after adding item
+* clear filters after adding item
+* error handling
+* validation (api return validation messages, but frontend do nothing with it)
 
 ## What I did to make the initial code executable?
 

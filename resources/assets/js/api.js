@@ -12,10 +12,15 @@ export const fetchListItem = (id) => {
 
 export const fetchCountries = () => {
     return axios.get('/cities')
-        .then(response => response.data)
-        .then(cities => Array.from(
-            new Set(
-                cities.map(city => city.country)
-            )
-        ));
+        .then(response => response.data);
+};
+
+export const fetchDevelopers = () => {
+    return axios.get('/developers')
+        .then(response => response.data);
+};
+
+export const createItem = (data) => {
+    return axios.post('/lists', data)
+        .then(response => response.data);
 };

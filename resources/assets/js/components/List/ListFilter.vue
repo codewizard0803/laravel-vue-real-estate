@@ -4,16 +4,16 @@
             <h3>Filter component</h3>
         </template>
         <template slot="body">
-            <form @submit.prevent="$emit('onSubmit')">
+            <form @submit.prevent="onSubmit">
                 <div class="form-group">
                     <label for="country">Country</label>
-                    <select class="form-control" id="country"  @change="$emit('changeCountry', $event.target.value)">
-                        <option value="" disabled selected> </option>
+                    <select class="form-control" id="country" v-model="country">
+                        <option value="" selected> </option>
                         <option
                             v-for="countryOption in countryOptions"
-                            v-bind:value="countryOption"
+                            v-bind:value="countryOption.country"
                         >
-                            {{ countryOption }}
+                            {{ countryOption.country }}
                         </option>
                     </select>
                 </div>
@@ -24,7 +24,7 @@
                             class="form-control"
                             id="price"
                             placeholder="Price less than"
-                            @change="$emit('changePrice', $event.target.value)"
+                            v-model="price"
                     >
                 </div>
                 <div class="form-group">
@@ -32,8 +32,9 @@
                     <select
                             class="form-control"
                             id="isOnSale"
-                            @change="$emit('changeIsOnSale', $event.target.value)"
+                            v-model="isOnSale"
                     >
+                        <option value="">All</option>
                         <option
                                 v-for="option in isOnSaleOptions"
                                 v-bind:value="option.value"
@@ -60,6 +61,27 @@
             isOnSaleOptions: {
                 type: Array,
                 required: true,
+            },
+        },
+        data() {
+            return {
+                country: '',
+                price: '',
+                isOnSale: '',
+            };
+        },
+        computed: {
+            allData() {
+                return {
+                    country: this.country,
+                    priceLessThan: this.price,
+                    isOnSale: this.isOnSale,
+                }
+            }
+        },
+        methods: {
+            onSubmit() {
+                this.$emit('onSubmit', this.allData);
             },
         },
         components: {

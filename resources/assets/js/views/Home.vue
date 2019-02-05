@@ -1,12 +1,14 @@
 <template>
     <div class="row">
-        <list-new />
+        <list-new
+                :country-options="countryOptions"
+                :developer-options="developerOptions"
+                :is-on-sale-options="isOnSaleOptions"
+                @onSubmit="create"
+        />
         <list-filter
                 :country-options="countryOptions"
-                @changeCountry="changeCountry"
-                @changePrice="changePrice"
                 :is-on-sale-options="isOnSaleOptions"
-                @changeIsOnSale="changeIsOnSale"
                 @onSubmit="filter"
         />
         <list-table
@@ -30,42 +32,35 @@
     import ListFilter from '../components/List/ListFilter.vue';
     import ListTable from '../components/List/ListTable.vue';
     import ListItem from '../components/List/ListItem.vue';
-    import { fetchLists, fetchCountries } from '../api';
+    import { fetchLists, fetchCountries, fetchDevelopers, createItem } from '../api';
 
     export default {
         data() {
             return {
                 isLoading: true,
-                country: '',
                 countryOptions: [],
-                price: '',
-                isOnSale: '',
                 isOnSaleOptions: [
-                    { value: '', text: 'All' },
                     { value: 1, text: 'Yes' },
                     { value: 0, text: 'No' },
                 ],
+                developerOptions: [],
                 lists: [],
             }
         },
         mounted() {
-            this.loadLists();
+            this.loadLists({});
             this.loadCountries();
+            this.loadDevelopers();
         },
         methods: {
-            async loadLists() {
+            async loadLists(data) {
                 this.isLoading = true;
                 try {
-                    this.lists = await fetchLists({
-                        country: this.country,
-                        isOnSale: this.isOnSale,
-                        priceLessThan: this.price,
-                    });
-                    console.log(this.lists);
+                    console.log(data);
+                    this.lists = await fetchLists(data);
                     this.isLoading = false;
                 } catch (error) {
                     this.isLoading = false;
-                    console.log(error);
                 }
             },
             async loadCountries() {
@@ -74,17 +69,21 @@
                 } catch (error) {
                 }
             },
-            changeCountry(country) {
-                this.country = country;
+            async loadDevelopers() {
+                try {
+                    this.developerOptions = await fetchDevelopers();
+                } catch (error) {
+                }
             },
-            changePrice(price) {
-                this.price = price;
+            filter(data) {
+                this.loadLists(data);
             },
-            changeIsOnSale(isOnSale) {
-                this.isOnSale = isOnSale;
-            },
-            filter() {
-                this.loadLists();
+            async create(data) {
+                try {
+                    await createItem(data);
+                    await this.loadLists({});
+                } catch (error) {
+                }
             }
         },
         components: {

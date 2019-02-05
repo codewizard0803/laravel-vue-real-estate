@@ -20,15 +20,21 @@ class ListController extends Controller
             // TODO: not sure if max int can be save in db
             'price' => 'required|integer|digits_between:0,' . PHP_INT_MAX . '',
             'isOnSale' => 'required|boolean',
-            'city_id' => 'required|exists:cities,id',
-            'developer_id' => 'required|exists:developers,id',
+            'cityId' => 'required|exists:cities,id',
+            'developerId' => 'required|exists:developers,id',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors());
         }
 
-        return response()->json(ListModel::create($request->all()));
+        $data = $request->all();
+        $data['city_id'] = $data['cityId'];
+        unset($data['cityId']);
+        $data['developer_id'] = $data['developerId'];
+        unset($data['developerId']);
+
+        return response()->json(ListModel::create($data));
     }
 
     public function show($id)
