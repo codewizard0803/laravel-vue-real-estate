@@ -11,7 +11,7 @@
                         <option value="" selected> </option>
                         <option
                             v-for="countryOption in countryOptions"
-                            v-bind:value="countryOption.country"
+                            :value="countryOption.country"
                         >
                             {{ countryOption.country }}
                         </option>
@@ -37,7 +37,7 @@
                         <option value="">All</option>
                         <option
                                 v-for="option in isOnSaleOptions"
-                                v-bind:value="option.value"
+                                :value="option.value"
                         >
                             {{ option.text }}
                         </option>

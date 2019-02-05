@@ -96,7 +96,7 @@ docker-compose exec app vendor/bin/phpunit
 
 Is in repo `https---github.com-jedrzejczak-laravel-vue-real-estate.postman_collection.json`
 
-## What can be done better?
+## What can be done better / should be done?
 
 * there should be unit tests for ListSearch (now ListIndexTest tests it)
 * adding new List item should be realized via some service
@@ -106,6 +106,7 @@ Is in repo `https---github.com-jedrzejczak-laravel-vue-real-estate.postman_colle
 * clear filters after adding item
 * error handling
 * validation (api return validation messages, but frontend do nothing with it)
+* remove unused files created by laravel
 
 ## What I did to make the initial code executable?
 

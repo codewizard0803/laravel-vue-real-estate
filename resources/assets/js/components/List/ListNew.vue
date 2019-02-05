@@ -16,7 +16,7 @@
                         <option value="" disabled selected> </option>
                         <option
                                 v-for="countryOption in countryOptions"
-                                v-bind:value="countryOption.id"
+                                :value="countryOption.id"
                         >
                             {{ countryOption.country }}
                         </option>
@@ -33,7 +33,7 @@
                         <option value="" disabled selected> </option>
                         <option
                                 v-for="developerOption in developerOptions"
-                                v-bind:value="developerOption.id"
+                                :value="developerOption.id"
                         >
                             {{ developerOption.name }}
                         </option>
@@ -71,7 +71,7 @@
                     >
                         <option
                                 v-for="option in isOnSaleOptions"
-                                v-bind:value="option.value"
+                                :value="option.value"
                         >
                             {{ option.text }}
                         </option>
