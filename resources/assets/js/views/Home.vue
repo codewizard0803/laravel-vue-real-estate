@@ -1,7 +1,14 @@
 <template>
     <div class="row">
         <list-new />
-        <list-filter />
+        <list-filter
+                :country-options="countryOptions"
+                @changeCountry="changeCountry"
+                @changePrice="changePrice"
+                :is-on-sale-options="isOnSaleOptions"
+                @changeIsOnSale="changeIsOnSale"
+                @onSubmit="filter"
+        />
         <list-table
             :is-loading="isLoading"
             :lists="lists"
@@ -23,20 +30,27 @@
     import ListFilter from '../components/List/ListFilter.vue';
     import ListTable from '../components/List/ListTable.vue';
     import ListItem from '../components/List/ListItem.vue';
-    import { fetchLists } from '../api';
+    import { fetchLists, fetchCountries } from '../api';
 
     export default {
         data() {
             return {
                 isLoading: true,
                 country: '',
+                countryOptions: [],
+                price: '',
                 isOnSale: '',
-                priceLessThan: '',
+                isOnSaleOptions: [
+                    { value: '', text: 'All' },
+                    { value: 1, text: 'Yes' },
+                    { value: 0, text: 'No' },
+                ],
                 lists: [],
             }
         },
         mounted() {
             this.loadLists();
+            this.loadCountries();
         },
         methods: {
             async loadLists() {
@@ -45,7 +59,7 @@
                     this.lists = await fetchLists({
                         country: this.country,
                         isOnSale: this.isOnSale,
-                        priceLessThan: this.priceLessThan,
+                        priceLessThan: this.price,
                     });
                     console.log(this.lists);
                     this.isLoading = false;
@@ -54,6 +68,24 @@
                     console.log(error);
                 }
             },
+            async loadCountries() {
+                try {
+                    this.countryOptions = await fetchCountries();
+                } catch (error) {
+                }
+            },
+            changeCountry(country) {
+                this.country = country;
+            },
+            changePrice(price) {
+                this.price = price;
+            },
+            changeIsOnSale(isOnSale) {
+                this.isOnSale = isOnSale;
+            },
+            filter() {
+                this.loadLists();
+            }
         },
         components: {
             ListItem,

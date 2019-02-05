@@ -21,8 +21,8 @@ class ListSearch
         if ($request->has('country')) {
             $this->handleCountry($request->input('country'));
         }
-        if ($request->has('price_less_than')) {
-            $this->handlePriceLessThan($request->input('price_less_than'));
+        if ($request->has('priceLessThan')) {
+            $this->handlePriceLessThan($request->input('priceLessThan'));
         }
 
         return $this->lists->get();

@@ -142,7 +142,7 @@ class ListIndexTest extends TestCase
         ]);
 
         $response = $this->makeRequest([
-            'price_less_than' => 400
+            'priceLessThan' => 400
         ]);
 
         $this->assertEquals(3, sizeof($response->json()));

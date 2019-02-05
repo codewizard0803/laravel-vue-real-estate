@@ -9,3 +9,13 @@ export const fetchListItem = (id) => {
     return axios.get(`/lists/${id}`)
         .then(response => response.data);
 };
+
+export const fetchCountries = () => {
+    return axios.get('/cities')
+        .then(response => response.data)
+        .then(cities => Array.from(
+            new Set(
+                cities.map(city => city.country)
+            )
+        ));
+};
