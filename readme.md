@@ -89,6 +89,7 @@ password: secret
 ### Tests
 
 ```
+touch database/test.sqlite
 docker-compose exec app vendor/bin/phpunit
 ```
 
