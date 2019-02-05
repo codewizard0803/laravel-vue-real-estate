@@ -1,11 +1,15 @@
 <template>
-    <tr>
+    <router-link
+        :to="{ name: 'list.item', params: { id: id } }"
+        :key="id"
+        tag="tr"
+    >
         <th scope="row">{{ id }}</th>
         <td>{{ name }}</td>
         <td>{{ country }}</td>
         <td>{{ price }}</td>
         <td>{{ onSale }}</td>
-    </tr>
+    </router-link>
 </template>
 
 <script>

@@ -8,40 +8,9 @@
 import './bootstrap';
 
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
+import router from './router';
 import App from './views/App';
-import Hello from './views/Hello';
-import Home from './views/Home';
-
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/home',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/hello',
-            name: 'hello',
-            component: Hello,
-        },
-    ],
-});
-axios.defaults.baseURL = '/api';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + USER_API_TOKEN;
-
-const getCurrentUser = async () => {
-    const response = await axios.get('/user');
-    return response.data;
-};
-
-const displayUserData = async () => console.log(await getCurrentUser());
-
-displayUserData();
 
 const app = new Vue({
     el: '#vue-app',

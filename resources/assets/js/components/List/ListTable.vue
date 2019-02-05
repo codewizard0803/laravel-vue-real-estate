@@ -21,12 +21,9 @@
                     </tr>
                 </template>
                 <template v-else>
-                    <slot
-                        :item="item"
-                        v-for="item in lists"
-                   />
-                        <!--<router-link :to="{ name: 'episode', params: { id: episode.id } }">-->
-                        <!--</router-link>-->
+                    <template v-for="item in lists">
+                        <slot :item="item"/>
+                    </template>
                 </template>
                 </tbody>
             </table>
