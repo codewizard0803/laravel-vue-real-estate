@@ -107,6 +107,8 @@ Is in repo `https---github.com-jedrzejczak-laravel-vue-real-estate.postman_colle
 * error handling
 * validation (api return validation messages, but frontend do nothing with it)
 * remove unused files created by laravel
+* frontend tests
+* loaders / spinners
 
 ## What I did to make the initial code executable?
 
